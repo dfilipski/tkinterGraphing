@@ -1,14 +1,21 @@
-from tkinter import *
+import tkinter
 
-class Window(Frame):
+root = tkinter.Tk()
+root.title("tkinterGraphing")
+root.geometry("640x640")
+root.resizable(0, 0)
 
-    def __init__(self, master = None):
-        Frame.__init__(self, master)
+#Create frame to display function imput
+inputFrame = tkinter.Frame(height = 60, width = 640)
+inputFrame.grid()
 
-        self.master = master
+functionLabel = tkinter.Label(inputFrame, text = "Y1")
+functionLabel.grid(row = 0)
 
-root = Tk()
+functionEntry = tkinter.Entry(inputFrame)
+functionEntry.grid(row = 0, column = 1)
 
-app = Window(root)
+graphBtn = tkinter.Button(inputFrame, text="Graph")
+graphBtn.grid(row = 0, column = 2)
 
 root.mainloop()
