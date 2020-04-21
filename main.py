@@ -1,4 +1,5 @@
 import tkinter
+from tkinter import ttk
 
 def getY1(int):
     xRange = { #Make this its own function later
@@ -14,7 +15,7 @@ def getX1():
     return int(functionEntry.get())
 
 def graphFunction(event):
-    print(getY1(getX1()))
+    resultMessage["text"] = getY1(getX1())
 
 
 root = tkinter.Tk()
@@ -38,5 +39,11 @@ functionLabel.grid(row = 0, column = 2)
 graphBtn = tkinter.Button(inputFrame, text="Graph")
 graphBtn.grid(row = 2)
 graphBtn.bind("<Button-1>", graphFunction)
+
+separator = tkinter.ttk.Separator(inputFrame, orient="horizontal")
+separator.grid(row = 3, columnspan = 3, sticky="ew")
+
+resultMessage = tkinter.Message(inputFrame, text = "")
+resultMessage.grid(row = 4, columnspan = 3)
 
 root.mainloop()
