@@ -15,42 +15,40 @@ def getX1():
     return int(functionEntry.get())
 
 def graphFunction(event):
-    resultMessage["text"] = getY1(getX1())
-
+    resultLabel["text"] = getY1(getX1())
 
 root = tkinter.Tk()
 root.title("tkinterGraphing")
 root.geometry("640x640")
 root.resizable(0, 0)
 
-#Create frame to display function imput
-inputFrame = tkinter.Frame(root, height = 60, width = 640)
-inputFrame.grid()
+# Create frame to manage layout
+frame = tkinter.Frame(root)
+frame.pack(fill="both", expand=True) # tells the frame to expand to fill the root
+frame.grid_columnconfigure(3, weight=1) # tells the grid layout that column 3 can expand to fill the frame
+frame.grid_rowconfigure(5, weight=1) # tells the grid layout that row 5 can expand to fill the frame
 
 
-# Make an output frame!!!!!
-# Switch to pack
-
-functionLabel = tkinter.Label(inputFrame, text = "Y1 = ")
+functionLabel = tkinter.Label(frame, text = "Y1 = ")
 functionLabel.grid(row = 0)
 
-functionEntry = tkinter.Entry(inputFrame, width = 2)
+functionEntry = tkinter.Entry(frame, width = 2)
 functionEntry.grid(row = 0, column = 1)
 
-functionLabel = tkinter.Label(inputFrame, text = "x")
+functionLabel = tkinter.Label(frame, text = "x")
 functionLabel.grid(row = 0, column = 2)
 
-graphBtn = tkinter.Button(inputFrame, text="Graph")
+graphBtn = tkinter.Button(frame, text="Graph")
 graphBtn.grid(row = 2)
 graphBtn.bind("<Button-1>", graphFunction)
 
-separator = tkinter.ttk.Separator(inputFrame, orient="horizontal")
-separator.grid(row = 3, columnspan = 3, sticky="ew")
+separator = tkinter.ttk.Separator(frame, orient="horizontal")
+separator.grid(row = 3, columnspan = 4, sticky="ew", pady=5)
 
-resultMessage = tkinter.Message(inputFrame, text = "")
-resultMessage.grid(row = 4, columnspan = 3)
+resultLabel = tkinter.Label(frame, text = "")
+resultLabel.grid(row = 4, columnspan = 4, sticky="ew")
 
-# graphCanvas = tkinter.Canvas(outputFrame, width = 400, height = 400, bg="white") #Create outputFrame and add to outputFrame
-# graphCanvas.pack()
+graphCanvas = tkinter.Canvas(frame, bg="white")
+graphCanvas.grid(row = 5, columnspan=4, sticky="nsew", padx=4, pady=4)
 
 root.mainloop()
