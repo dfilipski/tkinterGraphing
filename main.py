@@ -24,8 +24,12 @@ root.geometry("640x640")
 root.resizable(0, 0)
 
 #Create frame to display function imput
-inputFrame = tkinter.Frame(height = 60, width = 640)
+inputFrame = tkinter.Frame(root, height = 60, width = 640)
 inputFrame.grid()
+
+
+# Make an output frame!!!!!
+# Switch to pack
 
 functionLabel = tkinter.Label(inputFrame, text = "Y1 = ")
 functionLabel.grid(row = 0)
@@ -45,5 +49,8 @@ separator.grid(row = 3, columnspan = 3, sticky="ew")
 
 resultMessage = tkinter.Message(inputFrame, text = "")
 resultMessage.grid(row = 4, columnspan = 3)
+
+# graphCanvas = tkinter.Canvas(outputFrame, width = 400, height = 400, bg="white") #Create outputFrame and add to outputFrame
+# graphCanvas.pack()
 
 root.mainloop()
