@@ -39,7 +39,7 @@ functionLabel = tkinter.Label(frame, text = "x")
 functionLabel.grid(row = 0, column = 2)
 
 graphBtn = tkinter.Button(frame, text="Graph")
-graphBtn.grid(row = 2)
+graphBtn.grid(row = 2, pady=5)
 graphBtn.bind("<Button-1>", graphFunction)
 
 separator = tkinter.ttk.Separator(frame, orient="horizontal")
