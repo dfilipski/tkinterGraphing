@@ -1,21 +1,34 @@
 import tkinter
 from tkinter import ttk
 
-def getY1(int):
-    xRange = { #Make this its own function later
-        1: 0,
-        2: 0,
-        3: 0,
-    }
-    for x in xRange:
-        xRange[x] = int * x
-    return xRange
+def getY1(x, constant):
+#     xRange = { #Make this its own function later
+#         1: 0,
+#         2: 0,
+#         3: 0,
+#     }
+    # for x in xRange:
+    #     xRange[x] = num * x
+    return constant*x
 
 def getX1():
     return int(functionEntry.get())
 
+def plot(x, y):
+    x *= 5
+    y *= 5
+    x += 3
+    plotY = 532 - y
+    x2 = x + 5
+    y2 = plotY + 5
+    graphCanvas.create_rectangle(x, plotY, x2, y2, fill="red")
+
 def graphFunction(event):
-    resultLabel["text"] = getY1(getX1())
+    graphCanvas.delete("all")
+    constant = getX1()
+    for xCoord in range(1,107):
+        plot(xCoord,getY1(xCoord, constant))
+    # resultLabel["text"] = getY1(getX1())
 
 root = tkinter.Tk()
 root.title("tkinterGraphing")
