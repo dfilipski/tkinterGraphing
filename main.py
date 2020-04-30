@@ -1,18 +1,12 @@
 import tkinter
 from tkinter import ttk
 
-def getY1(x, constant):
-#     xRange = { #Make this its own function later
-#         1: 0,
-#         2: 0,
-#         3: 0,
-#     }
-    # for x in xRange:
-    #     xRange[x] = num * x
-    return constant*x
+def getY1(x):
+    const1 = getX1()
+    return const1*x
 
 def getX1():
-    return int(functionEntry.get())
+    return float(functionEntry.get())
 
 def plot(x, y):
     x *= 5
@@ -25,10 +19,8 @@ def plot(x, y):
 
 def graphFunction(event):
     graphCanvas.delete("all")
-    constant = getX1()
     for xCoord in range(1,107):
-        plot(xCoord,getY1(xCoord, constant))
-    # resultLabel["text"] = getY1(getX1())
+        plot(xCoord,getY1(xCoord))
 
 root = tkinter.Tk()
 root.title("tkinterGraphing")
@@ -57,9 +49,6 @@ graphBtn.bind("<Button-1>", graphFunction)
 
 separator = tkinter.ttk.Separator(frame, orient="horizontal")
 separator.grid(row = 3, columnspan = 4, sticky="ew", pady=5)
-
-resultLabel = tkinter.Label(frame, text = "")
-resultLabel.grid(row = 4, columnspan = 4, sticky="ew")
 
 graphCanvas = tkinter.Canvas(frame, bg="white")
 graphCanvas.grid(row = 5, columnspan=4, sticky="nsew", padx=4, pady=4)
