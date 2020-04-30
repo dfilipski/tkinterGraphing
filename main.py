@@ -20,8 +20,8 @@ def plot(x, y):
     x += 3
     plotY = 532 - y
     x2 = x + 5
-    y2 = plotY + 5
-    graphCanvas.create_rectangle(x, plotY, x2, y2, fill="red")
+    y2 = plotY - 5
+    graphCanvas.create_line(x, plotY, x2, y2, fill="red")
 
 def graphFunction(event):
     graphCanvas.delete("all")
