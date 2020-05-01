@@ -2,11 +2,11 @@ import tkinter
 from tkinter import ttk
 
 def getY1(x):
-    const1 = getX1()
+    const1 = getXConst()
     return const1*x
 
-def getX1():
-    return float(functionEntry.get())
+def getXConst():
+    return float(xCoefficientEntry.get())
 
 def plot(x, y):
     x *= 5
@@ -37,11 +37,12 @@ frame.grid_rowconfigure(5, weight=1) # tells the grid layout that row 5 can expa
 functionLabel = tkinter.Label(frame, text = "Y1 = ")
 functionLabel.grid(row = 0)
 
-functionEntry = tkinter.Entry(frame, width = 2)
-functionEntry.grid(row = 0, column = 1)
+xCoefficientEntry = tkinter.Entry(frame, width = 2)
+xCoefficientEntry.grid(row = 0, column = 1)
 
-functionLabel = tkinter.Label(frame, text = "x")
-functionLabel.grid(row = 0, column = 2)
+xCoefficientLabel = tkinter.Label(frame, text = "x")
+xCoefficientLabel.grid(row = 0, column = 2)
+
 
 graphBtn = tkinter.Button(frame, text="Graph")
 graphBtn.grid(row = 2, pady=5)
